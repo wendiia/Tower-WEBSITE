@@ -10,31 +10,7 @@
 @import "_nullstyle";
 
 
-.row {
-    margin: 0;
-    padding: 0;
-}
 
-.col {
-    margin: 0;
-    padding: 0;
-}
-
-
-.col-lg-6 {
-    margin: 0;
-    padding: 0;
-}
-
-.col-lg-12 {
-    margin: 0;
-    padding: 0;
-}
-
-.col-sm-12 {
-    margin: 0;
-    padding: 0;
-}
 
 
 /*Шрифты*/
@@ -72,8 +48,9 @@ $color-sub-bg: #152a36;
     letter-spacing: $letter-spacing;
 }
 
+
 * {
-    @include fontStyle($color-light-blue, $font-text, 17px, normal, normal, 1.4, 0.050em);
+    @include fontStyle($color-light-blue, $font-text, calc(15px + 3 * (100vw - 320px) / 1620), normal, normal, 1.4, 0.050em);
 }
 
 %logoFont {
@@ -81,24 +58,43 @@ $color-sub-bg: #152a36;
 }
 
 %textFont {
-    @include fontStyle($color-light-blue, $font-text, 17px, normal, 400, 1.82, 0.1em);
+    @include fontStyle($color-light-blue, $font-text, calc(15px + 3 * (100vw - 320px) / 1620), normal, 400, 1.82, 0.1em);
 }
 
 %fontTitlePage {
-    @include fontStyle($color-blue, $font-title-page, calc(21px + 16 * (100vw / 1920)), normal, 600, normal, 0.11em);
+    @include fontStyle($color-blue, $font-title-page, calc(30px + 5 * (100vw - 320px) / 1620), normal, 600, normal, 0.11em);
 }
 
 %fontTitleBlock {
-    @include fontStyle($color-white, $font-title-block, calc(19px + 6 * (100vw / 1920)), normal, 400, normal, 0.050em);
+    @include fontStyle($color-white, $font-title-block, calc(20px + 5 * (100vw - 320px) / 1620), normal, 400, normal, 0.050em);
 }
 
 %fontSubtitleBlock {
-    @include fontStyle($color-white, $font-subtitle-page, calc(8px + 16 * (100vw / 1920)), normal, 600, normal, 0.1em);
+    @include fontStyle($color-white, $font-subtitle-page, calc(17px + 5 * (100vw - 320px) / 1620), normal, 600, normal, 0.1em);
+}
+
+%fontA {
+    @include fontStyle($color-white, $font-text, calc(14px + 2 * (100vw - 320px) / 1620));
+}
+
+%styleA {
+    @extend %fontA;
+    color: #ffffff !important;
+    transition: 0.2s ease;
+
+    &:hover {
+        color: $color-blue !important;
+    }
+}
+
+
+section {
+    margin-bottom: 40px;
 }
 
 a,
 nav-item {
-    @include fontStyle($color-white, $font-text, calc(9px + 6 * (100vw / 1920)));
+    @extend %styleA;
 }
 
 button {
@@ -127,17 +123,6 @@ button {
         background: transparent;
     }
 }
-
-
-a {
-    color: #ffffff !important;
-    transition: 0.2s ease;
-
-    &:hover {
-        color: $color-blue !important;
-    }
-}
-
 
 .container {
     background: $color-container;
@@ -255,6 +240,11 @@ ul {
     }
 }
 
+.block-boosty {
+    margin-top: 200px;
+}
+
+
 .logo {
     .logo__title {
         width: 85px;
@@ -313,7 +303,7 @@ body {
             padding: 100px 0;
         }
 
-        .container_main {
+        .container-main {
             position: relative;
             padding-top: 20px;
             padding-left: 40px;
@@ -343,7 +333,184 @@ body {
                 margin-bottom: 20px;
             }
 
-            // СТРАНИЦА "АКТИВНОСТИ"
+            .container__slider {
+                margin-bottom: 200px;
+            }
+
+            .border-decor {
+                position: absolute;
+                top: 0px;
+
+                &_left {
+                    left: 0px;
+                }
+
+                &_right {
+                    left: calc(100% - 18px);
+                    transform: scale(-1, 1);
+                }
+            }
+        }
+
+        // ----------- СТРАНИЦА "ГЛАВНАЯ" ----------
+        .container-index {
+
+            .title-white {
+                font-size: calc(25px + 5 * (100vw - 320px) / 1620);
+            }
+
+            // приветствие
+            .block-welcome {
+                padding-top: 40px;
+
+                justify-content: center;
+                align-items: center;
+
+                // .block-welcome__title
+                &__title {
+                    @extend %fontTitlePage;
+                    font-size: calc(60px + 5 * (100vw - 320px) / 1620);
+                    font-weight: 500;
+                    letter-spacing: 0em;
+                }
+
+                // .block-welcome__subtitle
+                &__subtitle {
+                    @extend %fontTitleBlock;
+                    font-size: calc(80px + 10 * (100vw - 320px) / 1620);
+                    color: $color-blue;
+                    margin-left: -1.98px;
+                    margin-bottom: 40px;
+
+                    &::after {
+                        content: url("../img/index/torch.svg");
+                        position: relative;
+                        top: 2px;
+                        left: 2px;
+                    }
+                }
+
+                // .block-welcome__text
+                &__text {
+                    margin-bottom: 5px;
+                }
+
+                // .block-welcome__subtext
+                &__subtext {
+                    margin-bottom: 30px;
+                }
+
+                p {
+                    line-height: 28px;
+                }
+
+                button {
+                    // margin-bottom: 15px;
+                    white-space: nowrap;
+                    width: 100%;
+                    height: 45px;
+                }
+
+                // .block-welcome__btns
+                &__btns {
+
+                    .col {
+                        margin-bottom: 15px;
+                    }
+
+                    .block-welcome__btn-discord {
+                        background-color: #324E94;
+                        border: 2px solid #324E94;
+
+                        &:hover {
+                            border-color: $color-sub-bg;
+                            color: white;
+                            background: #1c3470;
+                        }
+                    }
+                }
+            }
+
+            // наши активности
+            // !! как будет время исправь адаптивность картинок в один ряд при 320px
+            .block-activities {
+
+                // .block-activities__col
+                &__col {
+                    position: relative;
+
+                    .block-activities__img,
+                    .block-activities__img-text {
+                        transition: 0.3s;
+                    }
+
+                    &:hover img {
+                        filter: brightness(30%);
+                    }
+
+                    &:hover p {
+                        color: $color-blue;
+                    }
+                }
+
+                // .block-activities__img-text
+                &__img-text {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    color: #FFF;
+                    font-weight: 500;
+
+                    // .block-activities__img-text_sm
+                    &_sm {
+                        font-size: 1.6em;
+                    }
+
+                    // .block-activities__img-text_lg
+                    &_lg {
+                        font-size: 2.5em;
+                    }
+                }
+
+                // .block-activities__img
+                &__img {
+                    width: 100%;
+                    object-fit: cover;
+                    padding-bottom: 20px;
+                    filter: brightness(60%);
+
+                    // .block-activities__img_sm
+                    &_sm {
+                        height: 220px !important;
+                    }
+
+                    // .block-activities__img_lg
+                    &_lg {
+                        height: 350px;
+                    }
+                }
+            }
+
+            // вы найдете у нас
+            .block-about {
+                &__card {
+                    background: $color-sub-bg;
+                    padding: 30px;
+                    margin-bottom: 40px;
+                    border-radius: 10px;
+                }
+
+                p {
+                    color: #95A5AD;
+                    line-height: 1.5em;
+                }
+            }
+        }
+
+        // ----------- СТРАНИЦА "НАШИ АКТИВНОСТИ" ----------
+        .container-activity {
+
             // выбор активности
             .container__select-activities {
                 background: $color-sub-bg;
@@ -352,8 +519,8 @@ body {
                 justify-content: center;
 
                 .container__activity-item {
-                    @media (max-width: 770px) {
-                        margin-bottom: 40px;
+                    @media (max-width: 991px) {
+                        margin-bottom: 20px;
                     }
 
                     .activity-item__a {
@@ -382,14 +549,7 @@ body {
                         }
 
                         .activity-item__text {
-                            color: #fff;
-                            font-size: 14px;
-                            text-align: center;
-                            transition: 0.2s ease;
-
-                            &:hover {
-                                color: #28b8af;
-                            }
+                            @extend %styleA;
                         }
                     }
                 }
@@ -426,114 +586,6 @@ body {
                 }
             }
 
-            // ----------- КОНЕЦ АКТИВНОСТИ ------------
-
-            // СТРАНИЦА "ГЛАВНАЯ"
-            // приветствие
-            .welcome-block {
-                padding-top: 40px;
-                justify-content: center;
-                align-items: center;
-
-                // .welcome-block__title
-                &__title {
-                    @extend %fontTitlePage;
-
-                    font-size: 60px;
-                    font-weight: 500;
-                    letter-spacing: 0em;
-                
-                }
-
-                // .welcome-block__subtitle
-                &__subtitle {
-                    @extend %fontTitleBlock;
-
-                    font-size: calc(65px + 16 * (100vw / 1920));
-                    color: $color-blue;
-                    margin-left: -1.98px;
-                    margin-bottom: 40px;
-
-                    &::after {
-                        content: url("../img/index/torch.svg");
-                        position: relative;
-                        top: 3px;
-                        left: 2px;
-                    }
-                }
-
-                // .welcome-block__text
-                &__text {
-                    margin-bottom: 5px;
-                }
-
-                // .welcome-block__subtext
-                &__subtext {
-                    margin-bottom: 30px;
-                }
-
-                p {
-                    line-height: 28px;
-                }
-
-                button {
-                    // margin-bottom: 15px;
-                    white-space:nowrap;
-                    width: 100%;
-                    height: 45px;
-                }
-
-                // .welcome-block__btns
-                &__btns {
-                    align-items: center;
-                    max-width: 400px;
-
-                    .col {
-                        margin-bottom: 20px;
-                    }
-
-                    .welcome-block__btn-discord {
-                        background: #324E94;
-                        border: 2px solid #324E94;
-
-                        &:hover {
-                            border-color: $color-sub-bg;
-                            color: white;
-                            background: #1c3470;
-                        }
-                    }
-
-                }
-
-
-
-            }
-
-            .col-lg-6 {}
-
-            .text {}
-
-            .img-fluid {}
-
-            // ----------- КОНЕЦ ГЛАВНАЯ ------------
-
-            .container__slider {
-                margin-bottom: 200px;
-            }
-
-            .border-decor {
-                position: absolute;
-                top: 0px;
-
-                &_left {
-                    left: 0px;
-                }
-
-                &_right {
-                    left: calc(100% - 18px);
-                    transform: scale(-1, 1);
-                }
-            }
         }
     }
 
