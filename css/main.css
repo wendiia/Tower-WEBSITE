@@ -216,7 +216,7 @@ ul {
   width: 90%;
 }
 
-.text_color_blue {
+.text-color-blue {
   color: #28b8af;
 }
 
@@ -248,9 +248,10 @@ ul {
 .discord-member {
   display: flex;
   align-items: center;
+  margin-bottom: 15px;
 }
-.discord-member img {
-  margin-right: 10px;
+.discord-member img, .discord-member i {
+  margin-right: 15px;
 }
 
 .carousel-indicators [data-bs-target] {
@@ -289,6 +290,22 @@ ul {
   content: url("../img/boosty-cat.svg");
   position: absolute;
   top: -70px;
+}
+
+.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #152a36;
+  padding: 30px;
+  padding-top: 20px;
+  border-radius: 10px;
+}
+.card .card__item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
 }
 
 .block-boosty {
@@ -335,7 +352,7 @@ body header .container .navbar-collapse .dropdown-item {
 }
 body main .container {
   margin-top: 90px;
-  margin-bottom: 90px;
+  margin-bottom: 40px;
   padding: 100px 0;
 }
 body main .container-main {
@@ -469,14 +486,34 @@ body main .container-index .block-activities__img_lg {
   height: 350px;
 }
 body main .container-index .block-about__card {
-  background: #152a36;
-  padding: 30px;
   margin-bottom: 40px;
-  border-radius: 10px;
+  height: auto;
 }
 body main .container-index .block-about p {
   color: #95A5AD;
   line-height: 1.5em;
+}
+body main .container-about .title-white {
+  font-size: calc(25px + 5 * (100vw - 320px) / 1620);
+}
+body main .container-about .subtitle {
+  font-weight: 400;
+}
+body main .container-about .block-text p {
+  line-height: 2em;
+}
+body main .container-about .block-links .title-white {
+  font-size: 1.3em;
+  text-align: left;
+}
+body main .container-about .block-links .block-links__card .card__desc-item {
+  font-size: 0.8em;
+}
+body main .container-about .block-links .block-links__card .card__dev-item {
+  margin-bottom: 30px;
+}
+body main .container-about .block-links .card_dev-team p, body main .container-about .block-links .card_dev-team span {
+  font-size: 0.9em;
 }
 body main .container-activity .container__select-activities {
   background: #152a36;
@@ -546,5 +583,8 @@ body footer .container .footer__items .logo {
   padding-right: 30px;
 }
 body footer .container .footer__items .footer__hyperlinks a {
-  padding-right: 20px;
+  margin-right: 10px;
+}
+body footer .container p {
+  font-size: 0.9em;
 }/*# sourceMappingURL=main.css.map */

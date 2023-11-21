@@ -154,7 +154,7 @@ ul {
     width: 90%;
 }
 
-.text_color_blue {
+.text-color-blue {
     color: $color-blue;
 }
 
@@ -192,9 +192,10 @@ ul {
 .discord-member {
     display: flex;
     align-items: center;
+    margin-bottom: 15px;
 
-    img {
-        margin-right: 10px;
+    img, i {
+        margin-right: 15px;
     }
 }
 
@@ -240,9 +241,28 @@ ul {
     }
 }
 
+// блок карточки
+.card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: $color-sub-bg;
+    padding: 30px;
+    padding-top: 20px;
+    border-radius: 10px;
+
+    .card__item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+}
+
 .block-boosty {
     margin-top: 200px;
 }
+
 
 
 .logo {
@@ -252,6 +272,8 @@ ul {
         @extend %logoFont;
     }
 }
+
+
 
 body {
     background: $color-bg;
@@ -299,7 +321,7 @@ body {
     main {
         .container {
             margin-top: 90px;
-            margin-bottom: 90px;
+            margin-bottom: 40px;
             padding: 100px 0;
         }
 
@@ -495,16 +517,60 @@ body {
             // вы найдете у нас
             .block-about {
                 &__card {
-                    background: $color-sub-bg;
-                    padding: 30px;
+                    // background: $color-sub-bg;
+                    // padding: 30px;
                     margin-bottom: 40px;
-                    border-radius: 10px;
+                    height: auto;
                 }
 
                 p {
                     color: #95A5AD;
                     line-height: 1.5em;
                 }
+            }
+        }
+
+
+
+        // ----------- СТРАНИЦА "О НАС" ----------
+        .container-about {
+            .title-white {
+                font-size: calc(25px + 5 * (100vw - 320px) / 1620);
+            }
+
+            .subtitle {
+                font-weight: 400;
+            }
+
+            .block-text {
+                p {
+                    line-height: 2em;
+                }
+            }
+
+            .block-links {
+                .title-white {
+                    font-size: 1.3em;
+                    text-align: left;
+                }
+
+                .block-links__card {
+                    .card__desc-item {
+                        font-size: 0.8em;
+
+                    }
+                    .card__dev-item {
+                        margin-bottom: 30px;
+                    }
+                
+                }
+
+                .card_dev-team {
+                    p, span {
+                        font-size: 0.9em;
+                    }
+                }
+
             }
         }
 
@@ -609,10 +675,15 @@ body {
 
                 .footer__hyperlinks {
                     a {
-                        padding-right: 20px;
+                        margin-right: 10px;
                     }
                 }
+            }
+
+            p {
+                font-size: 0.9em;
             }
         }
     }
 }
+
